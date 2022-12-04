@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Ecommerce</string>
+    <string name="rightAddress">The Right Address\n For Shopping\n Anyday</string>
+    <string name="quality">It is now very easy to reach the\nbest quality among the\nproducts on internet</string>
+    <string name="start">Start</string>
+    <string name="ecommerce">Ecommerce</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="let_s_login">Let\'s Login</string>
+    <string name="don_t_have_an_account_register">Don\'t have an account? Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="let_s_register">Let\'s Register</string>
+    <string name="do_you_have_an_account_login">Do you have an account? Login</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="gmail">Gmail</string>
+    <string name="reset_password">Reset password</string>
+    <string name="email_password_reset">We send you the password reset to your email</string>
+    <string name="cancel">Cancel</string>
+    <string name="send">Send</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="profile">Profile</string>
+    <string name="cart">Cart</string>
+    <string name="search_now">Search now</string>
+    <string name="see_product">See product</string>
+    <string name="best_deals">Best deals</string>
+    <string name="best_products">Best products</string>
+</resources>

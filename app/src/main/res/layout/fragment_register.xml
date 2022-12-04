@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/blury_background"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glRegisterLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.09"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glRegisterRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.91"/>
+
+        <TextView
+            android:id="@+id/txtVTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/h3"
+            android:layout_marginTop="60dp"
+            android:drawableStart="@drawable/ic_kleine_shape"
+            android:drawablePadding="5dp"
+            android:text="@string/ecommerce"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/glRegisterLeft"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/glRegisterRight"/>
+
+        <TextView
+            android:id="@+id/txtVLetsLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/h4"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@id/txtVTitle"
+            app:layout_constraintStart_toStartOf="@id/glRegisterLeft"
+            app:layout_constraintEnd_toEndOf="@id/glRegisterRight"
+            android:text="@string/let_s_register"
+            android:textAlignment="center"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/txtVDoYouHaveAnAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/h2"
+            android:layout_marginTop="15dp"
+            app:layout_constraintStart_toStartOf="@id/glRegisterLeft"
+            app:layout_constraintEnd_toEndOf="@id/glRegisterRight"
+            app:layout_constraintTop_toBottomOf="@id/txtVLetsLogin"
+            android:text="@string/do_you_have_an_account_login"
+            android:textAlignment="center"
+            android:gravity="center"/>
+
+        <EditText
+            android:id="@+id/etFirstNameRegister"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            app:layout_constraintStart_toStartOf="@id/glRegisterLeft"
+            app:layout_constraintEnd_toEndOf="@id/glRegisterRight"
+            app:layout_constraintTop_toBottomOf="@+id/txtVDoYouHaveAnAccount"
+            style="@style/editText"
+            android:hint="@string/first_name"
+            android:inputType="textPersonName"
+            android:layout_marginTop="40dp"/>
+
+        <EditText
+            android:id="@+id/etLastNameRegister"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            app:layout_constraintStart_toStartOf="@id/glRegisterLeft"
+            app:layout_constraintEnd_toEndOf="@id/glRegisterRight"
+            app:layout_constraintTop_toBottomOf="@+id/etFirstNameRegister"
+            style="@style/editText"
+            android:hint="@string/last_name"
+            android:inputType="textPersonName"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/etEmailRegister"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            app:layout_constraintStart_toStartOf="@id/glRegisterLeft"
+            app:layout_constraintEnd_toEndOf="@id/glRegisterRight"
+            app:layout_constraintTop_toBottomOf="@+id/etLastNameRegister"
+            style="@style/editText"
+            android:hint="@string/email"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/etPasswordRegister"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            app:layout_constraintStart_toStartOf="@id/glRegisterLeft"
+            app:layout_constraintEnd_toEndOf="@id/glRegisterRight"
+            app:layout_constraintTop_toBottomOf="@+id/etEmailRegister"
+            style="@style/editText"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:layout_marginTop="10dp"/>
+
+        <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+            android:id="@+id/cBtnRegisterRegister"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="30dp"
+            style="@style/blueButtonStyle"
+            app:layout_constraintTop_toBottomOf="@id/etPasswordRegister"
+            app:layout_constraintStart_toStartOf="@id/glRegisterLeft"
+            app:layout_constraintEnd_toEndOf="@id/glRegisterRight"
+            android:text="@string/register"
+            app:spinning_bar_color="@color/white"/>
+
+        <ImageView
+            android:id="@+id/imgVFacebookLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            app:layout_constraintStart_toStartOf="@id/glRegisterLeft"
+            app:layout_constraintTop_toBottomOf="@+id/cBtnRegisterRegister"
+            android:src="@drawable/facebook_login"/>
+
+        <TextView
+            android:id="@+id/txtVFacebookLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Facebook"
+            app:layout_constraintStart_toStartOf="@id/imgVFacebookLogin"
+            app:layout_constraintTop_toTopOf="@id/imgVFacebookLogin"
+            app:layout_constraintEnd_toEndOf="@id/imgVFacebookLogin"
+            app:layout_constraintBottom_toBottomOf="@id/imgVFacebookLogin"/>
+
+        <ImageView
+            android:id="@+id/imgVGoogleLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            app:layout_constraintEnd_toEndOf="@id/glRegisterRight"
+            app:layout_constraintTop_toBottomOf="@+id/cBtnRegisterRegister"
+            android:src="@drawable/google_login"/>
+
+        <TextView
+            android:id="@+id/txtVGoogleLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gmail"
+            app:layout_constraintStart_toStartOf="@id/imgVGoogleLogin"
+            app:layout_constraintTop_toTopOf="@id/imgVGoogleLogin"
+            app:layout_constraintEnd_toEndOf="@id/imgVGoogleLogin"
+            app:layout_constraintBottom_toBottomOf="@id/imgVGoogleLogin"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</FrameLayout>
