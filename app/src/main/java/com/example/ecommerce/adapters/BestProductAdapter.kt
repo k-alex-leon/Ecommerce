@@ -1,5 +1,6 @@
 package com.example.ecommerce.adapters
 
+import android.annotation.SuppressLint
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import com.example.ecommerce.databinding.ProductRvItemBinding
 class BestProductAdapter : RecyclerView.Adapter<BestProductAdapter.BestProductViewHolder>() {
 
     inner class BestProductViewHolder(private val binding : ProductRvItemBinding) : RecyclerView.ViewHolder(binding.root){
+        @SuppressLint("SetTextI18n")
         fun bind(product : Product){
             binding.apply {
 
@@ -23,12 +25,12 @@ class BestProductAdapter : RecyclerView.Adapter<BestProductAdapter.BestProductVi
                     .into(imgProduct)
 
                 txtVName.text = product.name
-                txtVPrice.text = "$ ${product.price.toString()}"
+                txtVPrice.text = "$ ${product.price}"
 
                 // verifica si existe oferta de descuento
                 product.offerPercentage?.let {
-                    val remainingPeicePercentage = 1f - it
-                    val priceAfterOffer = remainingPeicePercentage * product.price
+                    val remainingPricePercentage = 1f - it
+                    val priceAfterOffer = remainingPricePercentage * product.price
                     // String format toma 2 numeros despues del .
                     tvNewPrice.text = "$ ${String.format("%.2f", priceAfterOffer)}"
                     // esto pinta una linea horizontal al precio anterior
@@ -65,9 +67,16 @@ class BestProductAdapter : RecyclerView.Adapter<BestProductAdapter.BestProductVi
     override fun onBindViewHolder(holder: BestProductViewHolder, position: Int) {
         val product = differ.currentList[position]
         holder.bind(product)
+
+        holder.itemView.setOnClickListener {
+            onClick?.invoke(product)
+        }
     }
 
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
+
+    // agregando click-action
+    var onClick : ((Product)-> Unit)? = null
 }

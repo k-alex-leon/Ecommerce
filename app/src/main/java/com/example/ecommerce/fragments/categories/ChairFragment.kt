@@ -26,8 +26,11 @@ class ChairFragment : BaseCategoryFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
         lifecycleScope.launchWhenCreated {
             mViewModel.mOfferProducts.collect{
+
             when(it){
                 is Resource.Loading -> {
                     showOfferLoading()

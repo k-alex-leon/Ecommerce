@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Toolbar
+            android:id="@+id/toolbarBilling"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imgVCloseBilling"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_close_black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Billing"
+                    android:layout_marginStart="10dp"
+                    style="@style/h3"
+                    app:layout_constraintStart_toEndOf="@id/imgVCloseBilling"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </Toolbar>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rigthGuideLine"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.96"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftGuideLine"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.04"/>
+
+
+        <TextView
+            android:id="@+id/txtVPaymentMethods"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment Methods"
+            android:textSize="18sp"
+            android:textColor="@color/g_gray700"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/toolbarBilling"
+            app:layout_constraintStart_toEndOf="@id/leftGuideLine"/>
+
+        <TextView
+            android:id="@+id/txtVPaymentDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Eccomerce does not support virtual payments. You can pay when you receive your order."
+            app:layout_constraintTop_toBottomOf="@id/txtVPaymentMethods"
+            app:layout_constraintStart_toEndOf="@id/leftGuideLine"
+            app:layout_constraintEnd_toStartOf="@id/rigthGuideLine"/>
+
+
+        <View
+            android:id="@+id/topLineBilling"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/g_gray500"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/txtVPaymentDescription"
+            app:layout_constraintStart_toEndOf="@id/leftGuideLine"
+            app:layout_constraintEnd_toStartOf="@id/rigthGuideLine"/>
+
+        <TextView
+            android:text="Shopping Address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="17sp"
+
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/topLineBilling"
+            app:layout_constraintStart_toEndOf="@id/leftGuideLine"/>
+
+        <ImageView
+            android:id="@+id/imgVAddAddress"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_add_black"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@id/rigthGuideLine"
+            app:layout_constraintTop_toBottomOf="@id/topLineBilling"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAddress"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            tools:listitem="@layout/address_item"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginTop="15dp"
+            app:layout_constraintTop_toBottomOf="@id/imgVAddAddress"
+            app:layout_constraintStart_toEndOf="@id/leftGuideLine"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCartProducts"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal"
+            tools:listitem="@layout/billing_products_item"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/rvAddress"
+            app:layout_constraintStart_toEndOf="@id/leftGuideLine"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/txtVPriceBilling"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textStyle="bold"
+            android:textSize="17sp"
+            android:textColor="@color/black"
+            android:text="$ 99.99"
+            app:layout_constraintTop_toBottomOf="@id/rvCartProducts"
+            app:layout_constraintEnd_toStartOf="@id/rigthGuideLine"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/h2"
+            android:text="Total"
+            app:layout_constraintTop_toTopOf="@id/txtVPriceBilling"
+            app:layout_constraintTop_toBottomOf="@id/rvCartProducts"
+            app:layout_constraintStart_toEndOf="@id/leftGuideLine"
+            app:layout_constraintBottom_toBottomOf="@id/txtVPriceBilling"/>
+
+
+        <Button
+            android:id="@+id/btnPlaceOrderBilling"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            style="@style/blueButtonStyle"
+            android:text="Place Order"
+            app:layout_constraintStart_toEndOf="@id/leftGuideLine"
+            app:layout_constraintEnd_toStartOf="@id/rigthGuideLine"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+        <ProgressBar
+            android:id="@+id/pbBilling"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

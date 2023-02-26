@@ -10,6 +10,7 @@ import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ecommerce.R
@@ -18,6 +19,7 @@ import com.example.ecommerce.adapters.BestProductAdapter
 import com.example.ecommerce.adapters.SpecialProductsAdapter
 import com.example.ecommerce.databinding.FragmentMainCategoryBinding
 import com.example.ecommerce.util.Resource
+import com.example.ecommerce.util.showBottomNav
 import com.example.ecommerce.viewmodel.MainCategoryViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -46,6 +48,27 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
         setupSpecialProductsRv()
         setupBestDealsRv()
         setupBestProductsRv()
+
+        mSpecialProducsAdapter.onClick = {
+            // "product" es la key que asignamos en el navgraph (args)
+            val b = Bundle().apply { putParcelable("product", it) }
+            // pasamos el producto
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment, b)
+        }
+
+        mBestDealsAdapter.onClick = {
+            // "product" es la key que asignamos en el navgraph (args)
+            val b = Bundle().apply { putParcelable("product", it) }
+            // pasamos el producto
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment, b)
+        }
+
+        mBestProductAdapter.onClick = {
+            // "product" es la key que asignamos en el navgraph (args)
+            val b = Bundle().apply { putParcelable("product", it) }
+            // pasamos el producto
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment, b)
+        }
 
         // SPECIAL PRODUCTS
         lifecycleScope.launchWhenCreated {
@@ -151,6 +174,12 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
             layoutManager = GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
             adapter = mBestProductAdapter
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // al regresar al fragment nos aseguramos de mostrar el view nuevamente
+        showBottomNav()
     }
 
 }

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/imgVSizeShadow"
+        android:visibility="invisible"
+        android:background="@drawable/ellips"
+        android:backgroundTint="@color/g_blue100"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="25dp"
+        android:layout_height="25dp"/>
+
+    <ImageView
+        android:id="@+id/imgVSize"
+        android:background="@drawable/ellips"
+        android:backgroundTint="@color/g_gray500"
+        app:layout_constraintTop_toTopOf="@id/imgVSizeShadow"
+        app:layout_constraintStart_toStartOf="@id/imgVSizeShadow"
+        app:layout_constraintEnd_toEndOf="@id/imgVSizeShadow"
+        app:layout_constraintBottom_toBottomOf="@id/imgVSizeShadow"
+        android:layout_width="21dp"
+        android:layout_height="21dp"/>
+
+    <TextView
+        android:id="@+id/txtVSize"
+        app:layout_constraintTop_toTopOf="@id/imgVSize"
+        app:layout_constraintStart_toStartOf="@id/imgVSize"
+        app:layout_constraintEnd_toEndOf="@id/imgVSize"
+        app:layout_constraintBottom_toBottomOf="@id/imgVSize"
+        android:text="S"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

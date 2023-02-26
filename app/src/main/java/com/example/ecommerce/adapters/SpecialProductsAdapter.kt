@@ -50,11 +50,17 @@ class SpecialProductsAdapter : RecyclerView.Adapter<SpecialProductsAdapter.Speci
     override fun onBindViewHolder(holder: SpecialProductsViewHolder, position: Int) {
         val product = differ.currentList[position]
         holder.bind(product)
+
+        holder.itemView.setOnClickListener {
+            onClick?.invoke(product)
+        }
     }
 
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
 
+    // agregando click-action
+    var onClick : ((Product)-> Unit)? = null
 
 }

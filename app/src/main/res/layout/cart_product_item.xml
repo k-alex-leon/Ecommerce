@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/g_line"
+    android:padding="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+    <ImageView
+        android:id="@+id/imgVProductCart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/txtVProductCartTitle"
+        android:text="Product name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:maxLines="1"
+        android:layout_marginEnd="10dp"
+        android:textStyle="bold"
+        style="@style/h2"
+        app:layout_constraintStart_toEndOf="@id/imgVProductCart"
+        app:layout_constraintTop_toTopOf="@id/imgVProductCart"
+        app:layout_constraintEnd_toStartOf="@+id/lyAddLessButtonsContainer"/>
+
+    <TextView
+        android:id="@+id/txtVProductCartPrice"
+        android:text="$99.99"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/txtVProductCartTitle"
+        app:layout_constraintTop_toBottomOf="@id/txtVProductCartTitle"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/txtVProductCartPrice"
+        app:layout_constraintStart_toStartOf="@id/txtVProductCartPrice">
+
+        <ImageView
+            android:id="@+id/imgVProductCartColor"
+            android:layout_width="20dp"
+            android:visibility="gone"
+            android:background="@color/g_gray500"
+            android:layout_height="20dp"/>
+
+        <TextView
+            android:id="@+id/txtVProductCartSize"
+            android:layout_width="wrap_content"
+            android:minWidth="20dp"
+            android:text="10"
+            android:visibility="gone"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:background="@color/g_gray700"
+            android:layout_marginStart="10dp"
+            android:layout_height="20dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lyAddLessButtonsContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/imgVProductCartAdd"
+            android:layout_width="25dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_add_box_black"
+            android:layout_height="25dp"
+            app:tint="@color/g_gray700" />
+
+        <TextView
+            android:id="@+id/txtVCartProductQuantity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textAlignment="center"/>
+
+        <ImageView
+            android:id="@+id/imgVProductCartLess"
+            android:layout_width="25dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_less_box_black"
+            android:layout_height="25dp"
+            app:tint="@color/g_gray700" />
+
+    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
